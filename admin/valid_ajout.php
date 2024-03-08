@@ -11,13 +11,13 @@
 <hr>
 <?php
 $titre=$_GET['titre'];
-$prix=$_GET['.....'];
+$prix=$_GET['prix'];
 $nbpages=$_GET['nbpages'];
-$numauteur=$_GET['......'];
+$numauteur=$_GET['numauteur'];
 
-$mabd = new PDO('mysql:host=localhost;dbname=..........;charset=UTF8;', '....', '......');
+$mabd = new PDO('mysql:host=localhost;dbname=r214base;charset=UTF8;', 'r214user', 'tutu');
 $mabd->query('SET NAMES utf8;');
-$req = 'INSERT INTO bandes_dessinees(bd_titre,bd_prix,bd_nb_pages,_auteur_id) VALUES("bob",13.5, 24,4 )';
+$req = 'INSERT INTO bandes_dessinees(bd_titre,bd_prix,bd_nb_pages,_auteur_id) VALUES(\''. addcslashes($titre, '\'') .'\','.$prix.','.$nbpages.','.$numauteur.')';
 echo $req;
 $resultat = $mabd->query($req);
 

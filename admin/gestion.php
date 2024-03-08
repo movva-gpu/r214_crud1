@@ -16,7 +16,7 @@
 	</thead>
 	<tbody>
 <?php
-$mabd = new PDO('mysql:host=localhost;dbname=.........;charset=UTF8;', '.....', '......');
+$mabd = new PDO('mysql:host=localhost;dbname=r214base;charset=UTF8;', 'r214user', 'tutu');
 $mabd->query('SET NAMES utf8;');
 $req = "SELECT * FROM bandes_dessinees";
 $resultat = $mabd->query($req);
@@ -24,7 +24,7 @@ $resultat = $mabd->query($req);
 foreach ($resultat as $value) {
     echo '<tr>' ;
     echo '<td>'.$value['bd_titre'] . '</td>';
-    echo '<td>' . $value['........'] . '</td>';
+    echo '<td>' . $value['bd_prix'] . '</td>';
     echo '<td>' . $value['bd_nb_pages'] . '</td>';
     echo '<td> <a href="supprimer.php?num=0" > supprimer </a> </td>';
     echo '<td> <a href="modifier.php?num=0" > supprimer </a> </td>';

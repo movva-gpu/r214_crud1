@@ -9,17 +9,17 @@
 <h1>nos albums</h1>
 <hr>
 <?php
-$mabd = new PDO('mysql:host=localhost;dbname=.....;charset=UTF8;', '....', '.....');
+$mabd = new PDO('mysql:host=localhost;dbname=r214base;charset=UTF8;', 'r214user', 'tutu');
 $mabd->query('SET NAMES utf8;');
-$req = "SELECT * FROM bandes_dessinees INNER JOIN auteurs ON bandes_dessinees......... = auteurs..........";
+$req = "SELECT * FROM bandes_dessinees INNER JOIN auteurs ON bandes_dessinees._auteur_id = auteurs.auteur_id ";
 $resultat = $mabd->query($req);
 
 foreach ($resultat as $value) {
     echo '<div>' ;
     echo '<h3>'.$value['bd_titre'] . '</h3>';
-    echo '<p>tarif: ' . .......... . ' euro </p>';
+    echo '<p>tarif: ' . $value['bd_prix'] . ' euro </p>';
     echo '<p>' . $value['bd_nb_pages'] . ' pages </p>';
-    echo '<p> auteur: ' . $value['......_nom'] . '</p>';
+    echo '<p> auteur: ' . $value['auteur_nom'] . '</p>';
     echo '</div><hr>';
 }
 ?>
